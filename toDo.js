@@ -24,7 +24,6 @@ function addTasksClickHandler () {
         parsedTasksArray.push(taskInfoObj);
         localStorage.tasksInfos = JSON.stringify(parsedTasksArray);
     }
-    saveTasksOnDOM();
     addTasksInputElement.value = "";
 } 
 //DISPLAYS TASKS
@@ -68,7 +67,6 @@ function displayTaskList () {
                 localStorage.getItem("tasksInfos");
                 displayTaskList ();
                 localStorage.setItem("tasksInfos", JSON.stringify(parsedTasks));
-                saveTasksOnDOM();
             }
             displayTaskList();
         })
@@ -81,17 +79,6 @@ function displayTaskList () {
         taskInfoElement.appendChild(removeTaskButton);    
         taskInfoElement.classList.add("taskInfoStyleNormal");
     }
-    saveTasksOnDOM();
-
-}
-//SAVES CHANGES ON DOM
-function saveTasksOnDOM(key) {
-    // key = "tasksInfos";
-    // let item = localStorage.getItem(key);
-    // if (item !== undefined && item !== null) {
-    //     let taskInfoArray = JSON.parse(item);
-    //     return taskInfoArray;
-    // }
 }
 
 //LOAD ALL
@@ -99,8 +86,6 @@ function loadHandler() {
     const addTaskButton = document.getElementById("addtaskButton");
     addTaskButton.addEventListener("click", addTasksClickHandler);
     addTaskButton.addEventListener("click", displayTaskList);
-
-    saveTasksOnDOM()
 }
 window.addEventListener("load",loadHandler);
 window.addEventListener("load", displayTaskList);
