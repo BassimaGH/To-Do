@@ -4,6 +4,7 @@ let taskNameInfo;
 let taskDone = false;
 let taskInfoObj;
 let taskInfoElement;
+let parsedTasksArray;
 
 //ADD TASKS
 function addTasksClickHandler () {
@@ -20,7 +21,7 @@ function addTasksClickHandler () {
     if (!localStorage.tasksInfos) {
         localStorage.setItem("tasksInfos", JSON.stringify(taskInfoObj));
     } else {
-        let parsedTasksArray = JSON.parse(localStorage.tasksInfos);
+        parsedTasksArray = JSON.parse(localStorage.tasksInfos);
         parsedTasksArray.push(taskInfoObj);
         localStorage.tasksInfos = JSON.stringify(parsedTasksArray);
     }
