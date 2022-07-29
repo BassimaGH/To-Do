@@ -4,7 +4,7 @@ let taskNameInfo;
 let taskDone = false;
 let taskInfoObj;
 let taskInfoElement;
-let parsedTasksArray;
+let parsedTasksArray = [];
 
 //ADD TASKS
 function addTasksClickHandler () {
